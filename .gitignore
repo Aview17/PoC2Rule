@@ -35,6 +35,9 @@ __pycache__/
 *.tmp
 *.temp
 
+# 项目配置（复制 config.yaml.template 为 config.yaml 后填入实际值）
+config.yaml
+
 # 构建文件
 build/
 dist/

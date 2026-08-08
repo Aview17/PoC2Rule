@@ -1,4 +1,6 @@
 # PoC2Rule Agent 配置文件
+# 复制此文件为 config.yaml 并填入实际配置:
+#   cp config.yaml.template config.yaml
 
 workspace:
   base_dir: ./workspace
