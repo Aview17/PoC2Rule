@@ -1,0 +1,49 @@
+{
+  "signatures": [
+    {
+      "name": "cmd_wget_download",
+      "pattern": "wget%20",
+      "type": "content",
+      "modifiers": {
+        "nocase": true
+      }
+    },
+    {
+      "name": "cmd_pipe_char",
+      "pattern": "%7C",
+      "type": "content",
+      "modifiers": {
+        "distance": 0,
+        "within": 20
+      }
+    },
+    {
+      "name": "http_url",
+      "pattern": "http",
+      "type": "content",
+      "modifiers": {
+        "nocase": true,
+        "distance": 0,
+        "within": 30
+      }
+    }
+  ],
+  "conditions": [
+    {
+      "field": "protocol",
+      "operator": "equals",
+      "value": "TCP"
+    },
+    {
+      "field": "dst_port",
+      "operator": "equals",
+      "value": "80"
+    }
+  ],
+  "metadata": {
+    "classtype": "trojan-activity",
+    "priority": 1,
+    "reference": "",
+    "msg": "Potential Command Injection - Remote File Download via wget"
+  }
+}

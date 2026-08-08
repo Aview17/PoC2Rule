@@ -1,0 +1,3 @@
+{
+  "rule": "alert tcp $EXTERNAL_NET any -> $HTTP_SERVERS $HTTP_PORTS (msg:\"Command Injection - Remote File Download via wget\"; flow:to_server,established; content:\"wget%20\"; nocase; content:\"http\"; nocase; distance:0; within:20; classtype:trojan-activity; sid:4200001; rev:1;)"
+}

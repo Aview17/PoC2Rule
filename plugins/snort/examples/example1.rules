@@ -1,0 +1,28 @@
+# SQL Injection 检测规则
+alert tcp $EXTERNAL_NET any -> $HTTP_SERVERS $HTTP_PORTS (
+  msg:"SQL Injection - UNION SELECT Attempt";
+  flow:to_server,established;
+  content:"UNION"; nocase;
+  content:"SELECT"; nocase; distance:0; within:20;
+  classtype:web-application-attack;
+  sid:1000101; rev:1;
+)
+
+# 命令注入检测规则
+alert tcp $EXTERNAL_NET any -> $HTTP_SERVERS $HTTP_PORTS (
+  msg:"Command Injection - wget download attempt";
+  flow:to_server,established;
+  content:"wget%20"; nocase;
+  content:"http"; nocase; distance:0;
+  classtype:attempted-admin;
+  sid:1000102; rev:1;
+)
+
+# 目录遍历检测规则
+alert tcp $EXTERNAL_NET any -> $HTTP_SERVERS $HTTP_PORTS (
+  msg:"Directory Traversal Attempt";
+  flow:to_server,established;
+  content:"../"; depth:10;
+  classtype:web-application-attack;
+  sid:1000103; rev:1;
+)
