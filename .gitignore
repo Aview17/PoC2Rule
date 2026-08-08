@@ -39,6 +39,3 @@ __pycache__/
 build/
 dist/
 *.egg-info/
-
-# 项目配置文件
-config.yaml
